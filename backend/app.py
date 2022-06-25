@@ -110,3 +110,7 @@ def check_user(username, password):
     #check if the user exists
     user = session.query(User).filter_by(username=username, password=password).first()
     return user
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    
