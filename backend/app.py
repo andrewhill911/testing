@@ -8,12 +8,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/')
-def hello_world():
-    emp = Employee(first_name='John', last_name='Doe', middle_initial='M', date_of_birth='2000-01-01', date_of_employment='2000-01-01', status=True)
-    session.add(emp)
-    session.commit()
-    return emp
+
 
 @app.route('/employees/add', methods=['POST'])
 @cross_origin()
