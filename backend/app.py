@@ -8,7 +8,10 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
+@app.route('/', methods=['GET'])
+@cross_origin()
+def hello_world():
+    return 'Hello World!'
 
 @app.route('/employees/add', methods=['POST'])
 @cross_origin()
