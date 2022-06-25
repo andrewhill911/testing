@@ -19,7 +19,7 @@ const LoginPage = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://motobyoapp.herokuapp.com/login", {
+    fetch("https://motobyoapp.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
