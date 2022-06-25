@@ -19,7 +19,7 @@ const LoginPage = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:5000/login", {
+    fetch("http://motobyoapp.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

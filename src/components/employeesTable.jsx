@@ -50,7 +50,7 @@ const EmployeesTable = (props) => {
 
   const handleEdit = (event) => {
     event.preventDefault();
-    fetch("http://127.0.0.1:5000/employees/edit", {
+    fetch("http://motobyoapp.herokuapp.com/employees/edit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
