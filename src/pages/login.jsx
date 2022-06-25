@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
@@ -71,32 +71,6 @@ const LoginPage = (props) => {
     </div>
   );
 
-  const successMessage = (
-    <div
-      style={{
-        backgroundColor: "rgba(0, 255, 0, 0.9)",
-        width: "40%",
-        borderRadius: "5px",
-        padding: "10px",
-        display: "flex",
-        flexDirection: "column",
-        fontSize: "1.5rem",
-        color: "white",
-        margin: "1.25rem",
-      }}
-    >
-      <div style={{ alignSelf: "flex-end" }}>
-        <button
-          style={{ background: "none", border: "none" }}
-          onClick={() => setSuccess(false)}
-        >
-          <FontAwesomeIcon icon={faX} />
-        </button>
-      </div>
-      <p style={{ alignSelf: "center" }}>Login successful!</p>
-    </div>
-  );
-
   return (
     <div
       style={{
@@ -108,7 +82,7 @@ const LoginPage = (props) => {
         width: "100%",
       }}
     >
-      {error != "" ? errorMessage : ""}
+      {error !== "" ? errorMessage : ""}
       {success ? <Navigate to="/home" /> : ""}
       <div
         style={{

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Modal, Table } from "react-bootstrap";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector, useDispatch } from "react-redux";
-import { employeeSlice, getAllEmployees } from "../redux/slices/employeeSlice";
+import { useDispatch } from "react-redux";
+import { getAllEmployees } from "../redux/slices/employeeSlice";
 import store from "../redux/store";
 const EmployeesTable = (props) => {
   const [employees, setEmployees] = useState([]);
@@ -39,7 +39,7 @@ const EmployeesTable = (props) => {
     if (showModal === 0 && employeeToEdit !== "") {
       window.location.reload();
     }
-  }, [showModal]);
+  }, [showModal, employeeToEdit]);
 
   const handleChange = (event) => {
     setEmployeeToEdit({
@@ -104,7 +104,6 @@ const EmployeesTable = (props) => {
         <tbody style={{ backgroundColor: "#eee" }}>
           {employees.length > 0
             ? employees.map((employee) => {
-                let employeesCopy = [...employees];
                 return (
                   <>
                     {!hideInactive ? (
