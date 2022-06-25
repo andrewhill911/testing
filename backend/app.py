@@ -4,14 +4,14 @@ from flask_cors import CORS, cross_origin
 from models import Employee, User
 from database import session
 from datetime import datetime
-app = Flask(__name__)
+app = Flask(__name__, static_folder="build/", static_url_path="/")
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/', methods=['GET'])
 @cross_origin()
 def hello_world():
-    return 'Hello World!'
+    return app.send_static_file('index.html')
 
 @app.route('/employees/add', methods=['POST'])
 @cross_origin()
