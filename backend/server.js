@@ -8,6 +8,8 @@ var bodyParser = require("body-parser");
 //import cors module
 var cors = require("cors");
 
+const path = require("path");
+
 //create database connection
 var conString =
   "postgres://postgres:testpassword@database-1.c5vt865d06bf.us-east-1.rds.amazonaws.com:5432/postgres";
@@ -38,6 +40,8 @@ var Employee = function (
 app.use(cors());
 //make body-parser friendly
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, "./frontend/reactfrontend/build")));
 
 app.post("/employees/add", function (req, res) {
   //create a new employee and insert it into the database
